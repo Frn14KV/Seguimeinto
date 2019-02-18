@@ -1,0 +1,260 @@
+<!Doctype html>
+{% load staticfiles %}
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href={% static 'kiaalap-master/img/favicon.ico'%}>
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/bootstrap.min.css'%}>
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/font-awesome.min.css'%}>
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/owl.carousel.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/owl.theme.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/owl.transitions.css'%}>
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/animate.css'%}>
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/normalize.css'%}>
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/meanmenu.min.css'%}>
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/main.css'%}>
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/educate-custon-icon.css'%}>
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/morrisjs/morris.css'%}>
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/scrollbar/jquery.mCustomScrollbar.min.css'%}>
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/metisMenu/metisMenu.min.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/metisMenu/metisMenu-vertical.css'%}>
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/calendar/fullcalendar.min.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/calendar/fullcalendar.print.min.css'%}>
+    <!-- x-editor CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/editor/select2.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/editor/datetimepicker.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/editor/bootstrap-editable.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/editor/x-editor-style.css'%}>
+    <!-- notifications CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/notifications/Lobibox.min.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/notifications/notifications.css'%}>
+      <!-- touchspin CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/touchspin/jquery.bootstrap-touchspin.min.css'%}>
+    <!-- datapicker CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/datapicker/datepicker3.css'%}>
+    <!-- forms CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/form/all-type-forms.css'%}>
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/dropzone/dropzone.css'%}>
+    <!-- colorpicker CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/colorpicker/colorpicker.css'%}>
+    <!-- select2 CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/select2/select2.min.css'%}>
+    <!-- chosen CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/chosen/bootstrap-chosen.css'%}>
+    <!-- ionRangeSlider CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/ionRangeSlider/ion.rangeSlider.css'%}>
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/ionRangeSlider/ion.rangeSlider.skinFlat.css'%}>
+    <!-- modals CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/modals.css'%}>
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/style.css'%}>
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href={% static 'kiaalap-master/css/responsive.css'%}>
+    <!-- modernizr JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/vendor/modernizr-2.8.3.min.js'%}></script>
+</head>
+<body>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright © 2018. Universidad Politécnica Salesiana. <a href={% url 'homepage' %}>UPS </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- jquery
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/vendor/jquery-1.12.4.min.js'%}></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/bootstrap.min.js'%}></script>
+    <!-- wow JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/wow.min.js'%}></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/jquery-price-slider.js'%}></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/jquery.meanmenu.js'%}></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/owl.carousel.min.js'%}></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/jquery.sticky.js'%}></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/jquery.scrollUp.min.js'%}></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/scrollbar/jquery.mCustomScrollbar.concat.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/scrollbar/mCustomScrollbar-active.js'%}></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/metisMenu/metisMenu.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/metisMenu/metisMenu-active.js'%}></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/counterup/jquery.counterup.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/counterup/waypoints.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/counterup/counterup-active.js'%}></script>
+    <!-- data table JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/data-table/bootstrap-table.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/tableExport.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/data-table-active.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/bootstrap-table-editable.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/bootstrap-editable.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/bootstrap-table-resizable.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/colResizable-1.5.source.js'%}></script>
+    <script src={% static 'kiaalap-master/js/data-table/bootstrap-table-export.js'%}></script>
+    <!--  editable JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/editable/jquery.mockjax.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/mock-active.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/select2.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/moment.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/bootstrap-datetimepicker.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/bootstrap-editable.js'%}></script>
+    <script src={% static 'kiaalap-master/js/editable/xediable-active.js'%}></script>
+    <!-- Chart JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/chart/jquery.peity.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/peity/peity-active.js'%}></script>
+    <!-- pwstrength JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/password-meter/pwstrength-bootstrap.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/password-meter/zxcvbn.js'%}></script>
+    <script src={% static 'kiaalap-master/js/password-meter/password-meter-active.js'%}></script>
+    <!-- touchspin JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/touchspin/jquery.bootstrap-touchspin.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/touchspin/touchspin-active.js'%}></script>
+    <!-- colorpicker JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/colorpicker/jquery.spectrum.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/colorpicker/color-picker-active.js'%}></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/datapicker/bootstrap-datepicker.js'%}></script>
+    <script src={% static 'kiaalap-master/js/datapicker/datepicker-active.js'%}></script>
+    <!-- input-mask JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/input-mask/jasny-bootstrap.min.js'%}></script>
+    <!-- chosen JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/chosen/chosen.jquery.js'%}></script>
+    <script src={% static 'kiaalap-master/js/chosen/chosen-active.js'%}></script>
+    <!-- select2 JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/select2/select2.full.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/select2/select2-active.js'%}></script>
+    <!-- ionRangeSlider JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/ionRangeSlider/ion.rangeSlider.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/ionRangeSlider/ion.rangeSlider.active.js'%}></script>
+    <!-- rangle-slider JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/rangle-slider/jquery-ui-1.10.4.custom.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/rangle-slider/jquery-ui-touch-punch.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/rangle-slider/rangle-active.js'%}></script>
+    <!-- knob JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/knob/jquery.knob.js'%}></script>
+    <script src={% static 'kiaalap-master/js/knob/knob-active.js'%}></script>
+    <!-- notification JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/notifications/Lobibox.js'%}></script>
+    <script src={% static 'kiaalap-master/js/notifications/notification-active.js'%}></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/sparkline/jquery.sparkline.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/sparkline/jquery.charts-sparkline.js'%}></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/calendar/moment.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/calendar/fullcalendar.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/calendar/fullcalendar-active.js'%}></script>
+    <!-- maskedinput JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/jquery.maskedinput.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/masking-active.js'%}></script>
+    <!-- datepicker JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/datepicker/jquery-ui.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/datepicker/datepicker-active.js'%}></script>
+    <!-- form validate JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/form-validation/jquery.form.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/form-validation/jquery.validate.min.js'%}></script>
+    <script src={% static 'kiaalap-master/js/form-validation/form-active.js'%}></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/dropzone/dropzone.js'%}></script>
+    <!-- tab JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/tab.js'%}></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/plugins.js'%}></script>
+    <!-- main JS
+		============================================ -->
+    <script src={% static 'kiaalap-master/js/main.js'%}></script>
+</body>
+</html>
