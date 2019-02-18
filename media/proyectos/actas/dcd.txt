@@ -1,0 +1,23 @@
+ fields = ['first_name',
+                  'last_name',
+                  'username',
+                  'email',
+                  'password1',
+                  'typeuser',]
+        labels = {'first_name':'Nombre:',
+                  'last_name':'Apellido:',
+                  'username':'Usuario:',
+                  'email':'Correo:',
+                  }
+        widgets = {'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Ricardo'}),
+                   'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Esta es una area basica de estudio.'}),
+                   'username': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: usuario1'}),
+                   'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Ejemplo: Esta es una area basica de estudio.'}),
+                   }
+
+
+
+             localStorage[this.name] = this.value;
+
+
+     <input id="id_Tiempo_inactividad" name="Tiempo_inactividad" type="text" class="form-control" placeholder="Ejemplo: 6 meses">
