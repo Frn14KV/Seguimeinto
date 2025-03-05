@@ -1,0 +1,61 @@
+{% extends "soporte.html" %}
+{% block title %} Iniciar Seccion - Seguimiento de Proyectos {% endblock %}
+{% block content %}
+{% load staticfiles %}
+<html class="no-js" lang="en">
+ <title>Iniciar Seccion - Seguimiento de Proyectos</title>
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+            <form action="" method="post">{% csrf_token %}
+                <form action="#" method="post">
+                    <div class="text-center m-b-md custom-login">
+                        <a href={% url 'homepage' %}><img class="main-logo" alt="" src= {% static 'kiaalap-master/img/logo/apple-icon-180x180.png'%}  /></a>
+                        <h3>POR FAVOR INICIAR SESIÓN EN LA APLICACIÓN</h3>
+				        <p>Seguimiento de Proyectos</p>
+                    </div>
+                    {% if message is not null %}
+                        <div class="alert alert-danger alert-mg-b" role="alert">
+                            <strong>Datos Erroneos</strong> {{ message }}
+                        </div>
+                    {% endif %}
+                    <div class="content-error">
+                        <div class="hpanel">
+                            <div class="panel-body">
+                                <form action="#" id="loginForm">
+                                    <div class="form-group">
+                                        <label class="control-label" for="username">Usuario</label>
+                                        <input type="text" placeholder="usuario1" title="Por favor ingrese su usuarios" required="" value="" name="username" id="id_username" class="form-control">
+                                        <span class="help-block small">Tu nombre de usuario único de la aplicación</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="password">Clave</label>
+                                        <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="id_password" class="form-control">
+                                        <span class="help-block small">Tu contraseña de la aplicación</span>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-success btn-block loginbtn">Iniciar Sesión</button>
+                                        <a type="button" class="btn lobibox-btn-cancel mw-btn-block" href="{% url 'registro' %}">Registrarse</a>
+                                        <a type="button" class="btn btn-close mw-btn-block" href="{% url 'homepage' %}">Cancelar</a>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <a href="{% url 'password_reset'%}" class="help-block small" >Olvidó su clave</a>
+                                    </div>
+                                    <p style="text-align: center;">o Iniciar Sesión con:</p>
+                                    <div style="text-align: center;">
+                                        <div class="login-social-inner">
+                                            <a type="button" href="{% url 'social:begin' 'github' %}" class="btn lobibox-btn-cancel mw-btn-block" style="background:black"><span><i class="fa fa-github"></i></span>  GITHUB</a>
+                                            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn lobibox-btn-cancel mw-btn-block" style="background:red"> <span><i class="fa fa-google-plus"></i></span> Google+ </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center login-footer">
+                        <p>Copyright © 2018. Universidad Politécnica Salesiana. <a href={% url 'homepage' %}>UPS </a></p>
+                    </div>
+                </form>
+            </form>
+		</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+-- Crear usuario en linux
+sudo su
+adduser catedra
+passwd catedra
+
+--instlar posgrest
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+
+--en caso de no arrancar la base:
+sudo service postgresql start
+
+--crear usuario postgresql
+createuser catedra --interactive
+
+--crear la base de datos
+createdb catedra
+
+--iniciar secion con el usuario creado
+sudo -i -u catedra
+--en caso de problema se debe crear una carpeta en el directorio principal
+mkadir catedra
+
+--creamos una carpeta
+mkdir proyecto
+--acceder a la carpeta
+cd /proyecto
+
+--instalar python 3.7
+sudo apt-get update
+sudo apt-get install python3.7
+
+--instalar pip3
+sudo apt-get -y install python3-pip
+
+--instalamos el entorno virtual para django
+-- pip 
+sudo apt-get install python-pip
+--Install Virtual Environment
+sudo pip install virtualenv
+--Install virtual environment wrapper About virtual env wrapper
+sudo pip install virtualenvwrapper
+
+---After Installing prerequisites you need to bring virtual environment wrapper into action to create virtual environment. Following are the steps -
+
+--set virtual environment directory in path variable
+export WORKON_HOME=(/home/catedra/proyecto)
+source /usr/local/bin/virtualenvwrapper.sh -p $WORKON_HOME
+
+
+--creamos la el entorno virtual
+mkvirtualenv proyectoC
+
+workon proyectoC
+
+pip3 install Django==2.1.5
+
+--Para registrar con una red social
+pip3 install social-auth-app-django
+
+pip3 install django-select-multiple-field
+
+pip3 install django-smart-selects
+
+pip3 install psycopg2
+pip3 install psycopg2-binary
+
+pip3 install Pillow
+
+--Migracion de tablas
+python manage.py migrate --run-syncdb 
+
+--en caso de no se migre por conecion con la base 
+sudo systemctl restart postgresql
+
+--cambio de contrasenia linux
+passwd catedra
+
+--cambiar clave de postgres  
+psql -c "ALTER USER catedra WITH PASSWORD 'Proyecto_Catedra2018'"
+
+--para el cargado de los archviso estaticos antes de arrancar el servidor
+python manage.py collectstatic insecure
+--(salda un mensaje y se le da en 'yes')
+
+Arrancar servidor
+python manage.py runserver  0.0.0.0:8080 
+python manage.py runserver 192.168.1.5:8080
+

@@ -1,0 +1,555 @@
+{% extends "soporte.html" %}
+{% block title %} Pefil del  Tutor - Seguimiento de Proyectos {% endblock %}
+{% block content %}
+{% load staticfiles %}
+<!-- /navbar -->
+<title> Perfil del Tutor - Seguimiento de Proyectos </title>
+    <!-- Start Left menu area -->
+    <div class="left-sidebar-pro">
+        <nav id="sidebar" class="">
+            <div class="sidebar-header">
+                <a href={% url 'homepage' %}><img class="main-logo" alt="" src= {% static 'kiaalap-master/img/logo/apple-icon-76x76.png'%}  /></a>
+                <strong><a href={% url 'homepage' %}><img   alt="" src={% static 'kiaalap-master/img/logo/favicon-32x32.png'%} /></a></strong>
+            </div>
+            <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                <nav class="sidebar-nav left-sidebar-menu-pro">
+                    <ul class="metismenu" id="menu1">
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a title="Home" aria-expanded="false" href={% url 'homepage' %}><span class="educate-icon educate-home icon-wrap"></span><span class="mini-click-non"> Home</span></a>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href={% url 'Proyecto' %}><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span><span class="mini-click-non"> Proyecto</span>
+								</a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                                <li><a title="Lista de Proyectos" href={% url 'Proyecto' %}><span class="mini-sub-pro">Lista de Proyectos</span></a></li>
+                                <li><a title="Agregar Proyecto" href={% url 'guardar_proyecto' %}><span class="mini-sub-pro">Agregar Proyecto</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Tutor' %}><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non"> Tutores </span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Tutores" href={% url 'Tutor' %}><span class="mini-sub-pro"> Lista de Tutores </span></a></li>
+                                <li><a title="Agregar Tutor" href={% url 'guardar_tutor' %}><span class="mini-sub-pro"> Agregar Tutor </span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Autor' %}><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non"> Autores</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Autores" href={% url 'Autor' %}><span class="mini-sub-pro"> Lista de Autores </span></a></li>
+                                <li><a title="Agregar Autor" href={% url "guardar_autor" %}><span class="mini-sub-pro"> Agregar Autor </span></a></li>
+                            </ul>
+                        </li>
+                        <li >
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Institucion' %}><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Instituciones </span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Instituciones" href={% url 'Institucion' %}><span class="mini-sub-pro">Lista de Instituciones</span></a></li>
+                                <li><a title="Agregar Institucion" href={% url 'guardar_institucion' %}><span class="mini-sub-pro">Agregar Institución</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'ResponsableInstitucional' %}><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Responsable</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Responsables Inst" href={% url 'ResponsableInstitucional' %}><span class="mini-sub-pro">Lista de Resp. Inst</span></a></li>
+                                <li><a title="Agregar Responsable Inst" href={% url 'guardar_responsableinstitucional' %}><span class="mini-sub-pro">Agregar Resp. Inst</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'TipoProyecto' %}><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Tipos de Proyecto</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista T. de P" href={% url 'TipoProyecto' %}><span class="mini-sub-pro">Lista T. de P</span></a></li>
+                                <li><a title="Agregar T. de P" href={% url 'guardar_tipoproyecto' %}><span class="mini-sub-pro">Agregar T. de P</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href="{% url 'AreaConocimiento' %}"><span class="educate-icon educate-message icon-wrap"></span> <span class="mini-click-non">Área de Conocim</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista A. de C." href={% url 'AreaConocimiento' %}><span class="mini-sub-pro">Lista A. de C.</span></a></li>
+                                <li><a title="Agregar A. de C." href={% url 'guardar_areaconocimiento' %}><span class="mini-sub-pro">Agregar A. de C.</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href="{% url 'Carrera' %}"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Carreras</span></a>
+                            <ul class="submenu-angle interface-mini-nb-dp" aria-expanded="false">
+                                <li><a title="Lista de Carreras" href={% url 'Carrera' %}><span class="mini-sub-pro">Lista de Carreras</span></a></li>
+                                <li><a title="Agregar Carrera" href={% url 'guardar_carrera' %}><span class="mini-sub-pro">Agregar Carrera</span></a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a title="Home" aria-expanded="false" href={% url 'homepage' %}><span class="educate-icon educate-home icon-wrap"></span><span class="mini-click-non"> Home</span></a>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href={% url 'Proyecto' %}><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span><span class="mini-click-non"> Proyecto</span>
+								</a>
+                            <ul class="submenu-angle" aria-expanded="true">
+                                <li><a title="Lista de Proyectos" href={% url 'Proyecto' %}><span class="mini-sub-pro">Lista de Proyectos</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Tutor' %}><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non"> Tutores </span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Tutores" href={% url 'Tutor' %}><span class="mini-sub-pro"> Lista de Tutores </span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Autor' %}><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non"> Autores</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Autores" href={% url 'Autor' %}><span class="mini-sub-pro"> Lista de Autores </span></a></li>
+                            </ul>
+                        </li>
+                        <li >
+                            <a class="has-arrow" aria-expanded="false" href={% url 'Institucion' %}><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Instituciones </span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Instituciones" href={% url 'Institucion' %}><span class="mini-sub-pro">Lista de Instituciones</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'ResponsableInstitucional' %}><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Responsable</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista de Responsables Inst" href={% url 'ResponsableInstitucional' %}><span class="mini-sub-pro">Lista de Resp. Inst</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href={% url 'TipoProyecto' %}><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Tipos de Proyecto</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista T. de P" href={% url 'TipoProyecto' %}><span class="mini-sub-pro">Lista T. de P</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href="{% url 'AreaConocimiento' %}"><span class="educate-icon educate-message icon-wrap"></span> <span class="mini-click-non">Área de Conocim</span></a>
+                            <ul class="submenu-angle" aria-expanded="false">
+                                <li><a title="Lista A. de C." href={% url 'AreaConocimiento' %}><span class="mini-sub-pro">Lista A. de C.</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" aria-expanded="false" href="{% url 'Carrera' %}"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Carreras</span></a>
+                            <ul class="submenu-angle interface-mini-nb-dp" aria-expanded="false">
+                                <li><a title="Lista de Carreras" href={% url 'Carrera' %}><span class="mini-sub-pro">Lista de Carreras</span></a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+    <!-- End Left menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                        <a href={% url 'homepage' %}><img class="main-logo" alt="" src="{% static '/kiaalap-master/img/logo/apple-icon-60x60.png'%}"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+                                                <i class="educate-icon educate-nav"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
+                                        <div class="header-top-menu tabl-d-n">
+                                            <ul class="nav navbar-nav mai-top-nav">
+                                                <li class="nav-item"><a href="{% url 'homepage' %} " class="nav-link">Home</a>
+                                                </li>
+                                                <li class="nav-item"><a href="{% url 'Tutor' %}" class="nav-link">Tutores</a>
+                                                </li>
+                                                <li class="nav-item"><a href="{% url 'Autor' %}" class="nav-link">Autores</a>
+                                                </li>
+                                                <li class="nav-item"><a href="{% url 'ResponsableInstitucional' %}" class="nav-link">Responsables</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item">
+                                                    {% if user.is_authenticated %}
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <img src="{% static '/kiaalap-master/img/product/usuario.jpg' %}" alt="" />
+                                                        <span class="admin-name">{{ user.get_username }} </span>
+                                                        <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                                                    </a>
+                                                        {% for u in user.groups.all%}
+                                                            {% if u.name == "SuperUsuarios" %}
+                                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                                    <li><a href="{% url 'usuarios' %}"><span class="edu-icon edu-settings author-log-ic"></span>Usuarios</a>
+                                                                    </li>
+                                                                    <li><a href={% url 'editar_clave' user.id %}><span class="edu-icon edu-locked author-log-ic"></span>Cambio de Clave</a>
+                                                                    </li>
+                                                                    <li><a href={% url 'logout' %}><span class="edu-icon edu-locked author-log-ic"></span>Salir</a>
+                                                                    </li>
+                                                                </ul>
+                                                            {% else %}
+                                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                                    <li><a href={% url 'editar_clave' user.id %}><span class="edu-icon edu-locked author-log-ic"></span>Cambio de Clave</a>
+                                                                    </li>
+                                                                    <li><a href={% url 'logout' %}><span class="edu-icon edu-locked author-log-ic"></span>Salir</a>
+                                                                    </li>
+                                                                </ul>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    {% else %}
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                        <img src="{% static '/kiaalap-master/img/product/sinusuario.jpg' %}" alt="" />
+                                                        <span class="admin-name">Sin Usuario</span>
+                                                        <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+														</a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                        <li><a href={% url 'loginv' %}><span class="edu-icon edu-locked author-log-ic"></span>Iniciar Sesión</a>
+                                                        </li>
+                                                        <li><a href={% url 'registro' %}><span class="edu-icon edu-locked author-log-ic"></span>Registrarse</a>
+                                                        </li>
+                                                    </ul>
+                                                    {% endif %}
+                                                </li>
+                                                <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        {% if user.is_authenticated %}
+                                        <li><a href={% url 'homepage' %}>Home</a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href={% url 'Proyecto' %}>Proyectos<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Proyecto' %}>Lista de Proyectos</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_proyecto' %}>Agregar Proyecto</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demoevent" href={% url 'Tutor' %}>Tutores <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demoevent" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Tutor' %}>Lista de Tutores</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_tutor' %}>Agregar Tutor</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demopro" href={% url 'Autor' %}>Autores <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demopro" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Autor' %}>lista de Autores</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_autor' %}>Agregar Autor</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#democrou" href={% url 'Institucion' %}>Instituciones<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="democrou" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Institucion' %}>Lista de Insituciones</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_institucion' %}>Agregar Institución</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demolibra" href={% url 'ResponsableInstitucional' %}>Responsables Insitucionales <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demolibra" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'ResponsableInstitucional' %}>Lista de Responsables Institucionales</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_responsableinstitucional' %}>Agregar Responsable Institucional</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demodepart" href={% url 'TipoProyecto' %}>Tipos de Proyecto <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demodepart" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'TipoProyecto' %}>Lista de Tipo de Proyectos</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_tipoproyecto' %}>Agregar Tipo de Proyecto</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demo" href={% url 'AreaConocimiento' %}>Área de Conocimiento<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demo" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'AreaConocimiento' %}>Lista de Área de Conocimiento</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_areaconocimiento' %}>Agregar Área de Conocimiento</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href={% url 'Carrera' %}>Carrearas <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Carrera' %}>Lista de Carreras</a>
+                                                </li>
+                                                <li><a href={% url 'guardar_carrera' %}>Agregar Carrera</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        {% else %}
+                                        <li><a href={% url 'homepage' %}>Home</a></li>
+                                        <li><a data-toggle="collapse" data-target="#Charts" href={% url 'Proyecto' %}>Proyectos<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Proyecto' %}>Lista de Proyectos</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demoevent" href={% url 'Tutor' %}>Tutores <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demoevent" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Tutor' %}>Lista de Tutores</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demopro" href={% url 'Autor' %}>Autores <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demopro" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Autor' %}>lista de Autores</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#democrou" href={% url 'Institucion' %}>Instituciones<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="democrou" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Institucion' %}>Lista de Insituciones</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demolibra" href={% url 'ResponsableInstitucional' %}>Responsables Insitucionales <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demolibra" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'ResponsableInstitucional' %}>Lista de Responsables Institucionales</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demodepart" href={% url 'TipoProyecto' %}>Tipos de Proyecto <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demodepart" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'TipoProyecto' %}>Lista de Tipo de Proyectos</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demo" href={% url 'AreaConocimiento' %}>Área de Conocimiento<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demo" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'AreaConocimiento' %}>Lista de Área de Conocimiento</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href={% url 'Carrera' %}>Carrearas <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
+                                                <li><a href={% url 'Carrera' %}>Lista de Carreras</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+            <div class="breadcome-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="breadcome-list single-page-breadcome">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="breadcome-heading">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <ul class="breadcome-menu">
+                                            <li><a href={% url 'homepage'%}>Home</a><span class="bread-slash">/</span>
+                                            </li>
+                                            <li><a href="{% url 'Tutor' %}">Lista de Tutores</a><span class="bread-blod">/</span>
+                                            </li>
+                                            <li><span class="bread-blod">Pefil del Tutor</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Single pro tab review Start-->
+        <div class="single-pro-review-area mt-t-30 mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="profile-info-inner">
+                            <div class="profile-img">
+                                 {% if tutor.imagen_tutor%}
+                                     <img alt="" src="{{tutor.imagen_tutor.url}}"/>
+                                 {%else %}
+                                     El Tutor no tiene una imagen asignada.
+                                 {%endif%}
+                            </div>
+                            <div class="profile-details-hr">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr">
+                                            <p><b>Nombre</b><br /> {{tutor.nombre_tutor}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                            <p><b>Apellido</b><br /> {{tutor.apellido_tutor}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr">
+                                            <p><b>Cédula</b><br />{{tutor.cedula_tutor}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                            <p><b>Teléfono</b><br />{{tutor.telefono_tutor}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="address-hr">
+                                            <p><b>Carrera</b><br />{{tutor.Carrera_tutor.nombre_carrera}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="address-hr">
+                                            <p><b>Correo</b><br />{{tutor.correo_tutor}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
+                            <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description">Información del Tutor</a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row mg-b-15">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="skill-title">
+                                                        <h2>Datos Básicos</h2>
+                                                        <hr/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                <div class="address-hr biography">
+                                                    <p><b>Nombres Completos</b><br/>{{tutor.nombre_tutor}} {{tutor.apellido_tutor}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                <div class="address-hr biography">
+                                                    <p><b>Teléfono</b><br/>{{tutor.telefono_tutor}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                <div class="address-hr biography">
+                                                    <p><b>Email</b><br />{{tutor.correo_tutor}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                                <div class="address-hr biography">
+                                                    <p><b>Carrera</b><br />{{tutor.Carrera_tutor.nombre_carrera}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mg-b-15">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="skill-title">
+                                                        <h2>Proyectos relacionados con el Tutor</h2>
+                                                        <hr />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="product-status-wrap">
+                                                   <div class="asset-inner">
+                                                        <table id="myTable">
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Imagen</th>
+                                                                <th>Titulo</th>
+                                                                <th>Propósito</th>
+                                                                <th>Información</th>
+                                                            </tr>
+                                                            {% for proyecto in tutor.proyecto_set.all %}
+                                                            <tr>
+                                                                <td>{{ proyecto.id }}</td>
+                                                                <td>
+                                                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                                                        <!-- Wrapper for slides -->
+                                                                        <div class="carousel-inner" role="listitem">
+                                                                            {% for p in proyecto.imagenes_set.all %}
+                                                                                {% if forloop.counter == 1 %}
+                                                                                    <div class="item active">
+                                                                                {% else %}
+                                                                                    <div class="item">
+                                                                                {% endif %}
+                                                                            {% if p.nombre_imagenes%}
+                                                                                <img alt="" src="{{ p.nombre_imagenes.url }}"  width="100" height="100"/>
+                                                                            {%else %}
+                                                                                No se ha incluido imagen en el Proyecto.
+                                                                            {%endif%}
+                                                                            </div>
+                                                                            {% endfor %}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td>{{proyecto.Titulo}}</td>
+                                                                <td>{{proyecto.Proposito}}</td>
+                                                                <td>
+                                                                    <a data-toggle="tooltip" title="Informacion" class="pd-setting-ed" href={% url 'proyecto_detalle' proyecto.id %}>
+                                                                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

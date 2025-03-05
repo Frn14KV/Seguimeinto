@@ -1,0 +1,101 @@
+{% extends "soporte.html" %}
+{% block title %} Registro de Super Usuarios- Seguimiento de Proyectos {% endblock %}
+{% block content %}
+{% load staticfiles %}
+<!-- /navbar -->
+<title> Registro de Super Usuarios - Seguimiento de Proyectos</title>
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="text-center custom-login">
+                <a href={% url 'homepage' %}><img class="main-logo" alt="" src= {% static 'kiaalap-master/img/logo/apple-icon-180x180.png' %}  /></a>
+				<h3>POR FAVOR REGISTRESE EN LA APLICACIÓN</h3>
+				<p>Seguimiento de Proyectos</p>
+			</div>
+            {% if message is not null %}
+                <div class="alert alert-danger alert-mg-b" role="alert">
+                    <strong>{{ message }}</strong> ingrese los datos correctos.
+                </div>
+            {% endif %}
+			<div class="content-error">
+				<div class="hpanel">
+                    <div class="panel-body">
+                        <form action="" id="loginForm" method="post"> {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label>Nombre</label>
+                                    <input class="form-control" name="first_name" id="id_first_name" title="first_name">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Apellido</label>
+                                    <input class="form-control" name="last_name" id="id_last_name" title="last_name">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label>Usuario</label>
+                                    <input class="form-control" name="username" id="id_username" title="username">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Email</label>
+                                    <input class="form-control" name="email" id="id_email" title="email">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Repita el Email</label>
+                                    <input class="form-control"  name="email" id="id_email" title="email">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Clave</label>
+                                    <input type="password" class="form-control example1" name="password1" id="id_password1" title="password1">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>Repita la Clave</label>
+                                    <input type="password" class="form-control example" name="password2" id="id_password2" title="password2">
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <div class="sparkline12-graph">
+                                        <div id="pwd-container1">
+                                            <div class="form-group mg-b-pass">
+                                                <div class="pwstrength_viewport_progress"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkbox col-lg-12">
+                                    <div class="form-group-inner">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <label class="login2 pull-right pull-right-pro">Tipo de Usuario</label>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                <div class="bt-df-checkbox pull-left">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="i-checks pull-left">
+                                                                <label>
+                                                                    <input id="id_typeuser" type="radio" value="Administradores" name="typeuser"> <i></i> <span class="basic-ds-n"></span>Administradores</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-block loginbtn" value="Registro">Registro</button>
+                                <a type="button" class="btn btn-close btn-block button-drop-style-one" href="{% url 'login' %}">Iniciar Sesión</a>
+                                <a type="button" class="btn btn-close btn-block button-down-drop" href="{% url 'homepage' %}">Cancelar</a>
+                            </div>
+                            <p style="text-align: center;">o Registrese con:</p>
+                            <div style="text-align: center;">
+                                <div class="login-social-inner">
+                                    <a type="button" href="{% url 'social:begin' 'github' %}" class="btn btn-close btn-block button-drop-style-one" style="background:black"><span><i class="fa fa-github"></i></span>  GITHUB</a>
+                                    <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-close btn-block button-drop-style-one" style="background:red"> <span><i class="fa fa-google-plus"></i></span> Google+ </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+			</div>
+		</div>
+    </div>
+{% endblock %}

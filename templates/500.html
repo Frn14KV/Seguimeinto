@@ -1,0 +1,18 @@
+{% extends "soporte.html" %}
+{% block title %} 500 - Seguimiento de Proyectos {% endblock %}
+{% block content %}
+{% load staticfiles %}
+<title>500 - Seguimiento de Proyectos </title>
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="content-error">
+				<h1>Error del Servidor <span class="counter"> 500</span></h1>
+				<p>El servidor encontró algo inesperado que no le permitió completar la solicitud. Pedimos disculpas.</p>
+				<a href="{% url 'homepage' %}">Seguimiento de Proyectos</a>
+			</div>
+			<div class="text-center login-footer">
+				<p>Copyright © 2018. Universidad Politécnica Salesiana. <a href={% url 'homepage' %}>UPS </a></p>
+			</div>
+		</div>
+    </div>
+ {% endblock %}
