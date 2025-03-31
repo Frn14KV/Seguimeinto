@@ -1,2 +1,2 @@
-web: gunicorn kickandplay.wsgi
+web: gunicorn Seguimiento.wsgi
 
